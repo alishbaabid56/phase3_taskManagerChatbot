@@ -1,0 +1,75 @@
+
+@tailwind utilities;
+
+/* Custom styles for the Todo Web Application */
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+}
+
+/* Task item styling */
+.task-item {
+  @apply p-4 rounded-lg border shadow-sm transition-all duration-200;
+}
+
+.task-item:hover {
+  @apply shadow-md;
+}
+
+.task-item.completed {
+  @apply bg-green-50 border-green-200;
+}
+
+.task-item.active {
+  @apply bg-white border-gray-200;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200;
+}
+
+.btn-secondary {
+  @apply bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200;
+}
+
+.btn-success {
+  @apply bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200;
+}
+
+/* Form styling */
+.form-control {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+/* Responsive adjustments for auth forms */
+.auth-form-container {
+  @apply max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md mx-auto;
+}
+
+/* Responsive task list */
+.task-list-container {
+  @apply space-y-6;
+}
+
+/* Responsive task form */
+.task-form-container {
+  @apply bg-white p-6 rounded-lg shadow-md;
+}
+
+/* Responsive dashboard */
+.dashboard-container {
+  @apply container mx-auto px-4 py-8;
+}
+
+/* Responsive profile page */
+.profile-container {
+  @apply container mx-auto px-4 py-8;
+}

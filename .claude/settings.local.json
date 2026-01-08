@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(touch backend/src/__init__.py backend/src/api/__init__.py backend/src/models/__init__.py backend/src/services/__init__.py backend/src/database/__init__.py)",
+      "Bash(python -c \"from src.main import app; print\\(''Import successful''\\)\")",
+      "Bash(uvicorn src.main:app --reload --port 8000)",
+      "Bash(python -m src.database.init_db)",
+      "Bash(uvicorn src.main:app --port 8001)",
+      "Bash(dir \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\frontend\\\\app\\\\auth\\\\login\")",
+      "Bash(dir \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\frontend\\\\app\\\\auth\\\\register\")",
+      "Bash(uvicorn src.main:app --port 8000)",
+      "Bash(findstr /n /C:\"hasOwnProperty\\(''detail''\\)\" \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\frontend\\\\src\\\\services\\\\api-client.ts\")",
+      "Bash(findstr /n login \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\frontend\\\\src\\\\services\\\\api-client.ts\")",
+      "Bash(findstr /n /C:\"async login\" \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\frontend\\\\src\\\\services\\\\api-client.ts\")",
+      "Bash(findstr /n /C:\"login\" \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\frontend\\\\src\\\\services\\\\api-client.ts\")",
+      "Bash(dir \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\backend\\\\src\\\\api\\\\tasks_routes.py\")"
+    ]
+  }
+}
