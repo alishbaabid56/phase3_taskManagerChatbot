@@ -109,6 +109,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setUser(null);
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    // Clear chat history when logging out
+    if (user) {
+      localStorage.removeItem(`chat_messages_${user.id}`);
+    }
   };
 
   const isAuthenticated = !!token && !!user;

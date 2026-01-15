@@ -3,6 +3,7 @@ from sqlmodel import SQLModel
 from .database import engine
 from src.models.user import User
 from src.models.task import Task
+from src.models.conversation import Conversation, Message
 
 def create_db_and_tables():
     """

@@ -2,6 +2,7 @@ from sqlmodel import SQLModel, create_engine
 from sqlalchemy import event
 from ..models.user import User
 from ..models.task import Task
+from ..models.conversation import Conversation, Message
 import os
 
 # Get database URL from environment

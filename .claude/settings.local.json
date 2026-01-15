@@ -13,7 +13,8 @@
       "Bash(findstr /n login \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\frontend\\\\src\\\\services\\\\api-client.ts\")",
       "Bash(findstr /n /C:\"async login\" \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\frontend\\\\src\\\\services\\\\api-client.ts\")",
       "Bash(findstr /n /C:\"login\" \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\frontend\\\\src\\\\services\\\\api-client.ts\")",
-      "Bash(dir \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\backend\\\\src\\\\api\\\\tasks_routes.py\")"
+      "Bash(dir \"C:\\\\Users\\\\star con\\\\Desktop\\\\Hackathon 2 Prep\\\\phase two\\\\backend\\\\src\\\\api\\\\tasks_routes.py\")",
+      "Bash(python -c \"from src.api.chat_routes import router; print\\(''Chat routes import successfully''\\)\")"
     ]
   }
 }
