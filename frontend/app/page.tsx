@@ -146,6 +146,66 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Stats Section */}
+    <section className="py-20 bg-gray-800">
+        <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {[
+            ['10K+', 'Active Users'],
+            ['50K+', 'Tasks Completed'],
+            ['99.9%', 'Uptime'],
+            ['24/7', 'Support'],
+          ].map(([num, label]) => (
+            <div key={label}>
+              <h2 className="text-4xl font-bold text-sky-400">{num}</h2>
+              <p className="text-gray-400 mt-2">{label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-800">
+          <div className="container mx-auto px-4 text-center">
+             <h2 className="text-4xl font-bold mb-12">
+           How <span className="text-sky-400">TaskFlow</span> Works
+         </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+              ['Create Account', 'Sign up and access your dashboard.'],
+              ['Add Tasks', 'Create and manage your daily tasks.'],
+              ['Stay Productive', 'Track and complete tasks efficiently.'],
+            ].map(([title, desc]) => (
+              <div key={title} className="bg-gray-800 p-6 rounded-xl">
+                <h3 className="text-xl font-semibold mb-2">{title}</h3>
+                <p className="text-gray-400">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-900/60">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12">
+            What Users <span className="text-sky-400">Say</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              ['Ayesha Khan', 'TaskFlow helped me stay organized daily.'],
+              ['Ali Raza', 'Simple UI and powerful features.'],
+              ['Sara Ahmed', 'Best task manager app I’ve used.'],
+            ].map(([name, text]) => (
+              <div key={name} className="bg-gray-800 p-6 rounded-xl">
+                <p className="text-gray-300 mb-4">“{text}”</p>
+                <h4 className="font-semibold">— {name}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* Footer */}
       <footer className="py-12 border-t border-gray-800">
         <div className="container mx-auto px-4">
@@ -167,3 +227,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+

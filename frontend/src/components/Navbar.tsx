@@ -21,7 +21,7 @@ const Navbar = () => {
           {/* Left side: App Name */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="text-2xl font-bold text-sky-400 hover:text-sky-300 transition-colors">
-              Taskora
+              TaskFlow
             </Link>
           </div>
 
