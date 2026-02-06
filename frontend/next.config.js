@@ -2,11 +2,8 @@
 const nextConfig = {
   experimental: {
     optimizePackageImports: ['@heroicons/react'],
-    // Turbopack disable (Next 16 mein yeh flag kaam karta hai)
-    turbopack: false,   // ← Yeh line add kar do
   },
   images: {
-    // Warning fix karne ke liye domains ko remotePatterns mein convert kar do
     remotePatterns: [
       {
         protocol: 'http',
@@ -14,10 +11,10 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'your-backend-domain.com',  // ya jo bhi real domain hai
+        hostname: 'https://alishba-abid-dev-todo-backend.hf.space/',  // jo bhi real backend domain hai, ya agar sab allowed to '**'
       },
-      // Agar images kisi aur jagah se aa rahi hain to yahan add kar do, e.g.:
-      // { protocol: 'https', hostname: '**' }  // wildcard for testing
+      // Optional: testing ke liye wildcard (baad mein remove kar sakti ho)
+      // { protocol: 'https', hostname: '**' },
     ],
   },
 };
