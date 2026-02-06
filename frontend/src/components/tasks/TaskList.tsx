@@ -14,7 +14,9 @@ const TaskList: React.FC<TaskListProps> = ({ userId, token }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showForm, setShowForm] = useState(false);
-  const [editingTask, setEditingTask] = useState<Task | null>(null);
+
+  // 🔧 FIX: null → undefined
+  const [editingTask, setEditingTask] = useState<Task | undefined>(undefined);
 
   // Fetch tasks
   useEffect(() => {
@@ -47,9 +49,19 @@ const TaskList: React.FC<TaskListProps> = ({ userId, token }) => {
     if (!editingTask) return;
 
     try {
-      const updatedTask = await apiClient.updateTask(userId, editingTask.id, taskData, token);
-      setTasks(tasks.map(task => task.id === editingTask.id ? updatedTask : task));
-      setEditingTask(null);
+      const updatedTask = await apiClient.updateTask(
+        userId,
+        editingTask.id,
+        taskData,
+        token
+      );
+
+      setTasks(tasks.map(task =>
+        task.id === editingTask.id ? updatedTask : task
+      ));
+
+      setEditingTask(undefined); // ✅ FIX
+      setShowForm(false);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to update task');
     }
@@ -66,7 +78,13 @@ const TaskList: React.FC<TaskListProps> = ({ userId, token }) => {
 
   const handleToggleComplete = async (taskId: string, completed: boolean) => {
     try {
-      const updatedTask = await apiClient.updateTaskCompletion(userId, taskId, completed, token);
+      const updatedTask = await apiClient.updateTaskCompletion(
+        userId,
+        taskId,
+        completed,
+        token
+      );
+
       setTasks(tasks.map(task =>
         task.id === taskId ? updatedTask : task
       ));
@@ -81,7 +99,7 @@ const TaskList: React.FC<TaskListProps> = ({ userId, token }) => {
   };
 
   const cancelEditing = () => {
-    setEditingTask(null);
+    setEditingTask(undefined); // ✅ FIX
     setShowForm(false);
   };
 
@@ -113,10 +131,16 @@ const TaskList: React.FC<TaskListProps> = ({ userId, token }) => {
       <div className="flex justify-between items-center">
         <div>
           <h3 className="text-xl font-bold text-white">Your Tasks</h3>
-          <p className="text-gray-400">{tasks.length} {tasks.length === 1 ? 'task' : 'tasks'}</p>
+          <p className="text-gray-400">
+            {tasks.length} {tasks.length === 1 ? 'task' : 'tasks'}
+          </p>
         </div>
+
         <button
-          onClick={() => setShowForm(true)}
+          onClick={() => {
+            setEditingTask(undefined);
+            setShowForm(true);
+          }}
           className="bg-sky-600 hover:bg-sky-700 hover:scale-105 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 ease-in-out transform"
         >
           Add Task
@@ -135,23 +159,20 @@ const TaskList: React.FC<TaskListProps> = ({ userId, token }) => {
 
       {tasks.length === 0 ? (
         <div className="bg-gray-800 rounded-xl p-12 text-center">
-          <div className="mx-auto w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mb-4">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-            </svg>
-          </div>
           <h3 className="text-lg font-medium text-white mb-2">No tasks yet</h3>
-          <p className="text-gray-400 mb-4">Get started by creating your first task</p>
+          <p className="text-gray-400 mb-4">
+            Get started by creating your first task
+          </p>
           <button
             onClick={() => setShowForm(true)}
-            className="bg-sky-600 hover:bg-sky-700 hover:scale-105 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 ease-in-out transform"
+            className="bg-sky-600 hover:bg-sky-700 text-white font-medium py-2 px-4 rounded-lg"
           >
             Create Task
           </button>
         </div>
       ) : (
         <div className="space-y-4">
-          {tasks.map((task) => (
+          {tasks.map(task => (
             <TaskItem
               key={task.id}
               task={task}
