@@ -11,11 +11,18 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'https://alishba-abid-dev-todo-backend.hf.space/',  // jo bhi real backend domain hai, ya agar sab allowed to '**'
+        hostname: 'alishba-abid-dev-todo-backend.hf.space',  // correct format
       },
-      // Optional: testing ke liye wildcard (baad mein remove kar sakti ho)
-      // { protocol: 'https', hostname: '**' },
     ],
+  },
+
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*', // frontend fetch path
+        destination: 'https://alishba-abid-dev-todo-backend.hf.space/api/:path*', // backend URL
+      },
+    ];
   },
 };
 
