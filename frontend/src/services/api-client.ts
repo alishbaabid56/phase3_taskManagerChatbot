@@ -289,7 +289,7 @@ class ApiClient {
 
   // Get user's tasks
   async getTasks(userId: string, token: string): Promise<Task[]> {
-    const response = await fetch(`${this.baseUrl}/api/${userId}/tasks`, {
+    const response = await fetch(`/api/${userId}/tasks`, {
       headers: this.getAuthHeaders(token),
     });
 
