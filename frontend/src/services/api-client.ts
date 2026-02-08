@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 
 // Base API URL from environment
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000';
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_BETTER_AUTH_URL!.replace(/\/$/, '');
 
 // Define TypeScript interfaces for our API responses
 interface User {
