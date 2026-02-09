@@ -395,7 +395,7 @@ class ApiClient {
 
   // Create a new task
   async createTask(userId: string, taskData: TaskCreate, token: string): Promise<Task> {
-    const response = await fetch(`${this.baseUrl}/api/${userId}/tasks`, {
+    const response = await fetch(`/api/${userId}/tasks`, {
       method: 'POST',
       headers: this.getAuthHeaders(token),
       body: JSON.stringify(taskData),
@@ -503,7 +503,7 @@ class ApiClient {
 
   // Update a task
   async updateTask(userId: string, taskId: string, taskData: TaskUpdate, token: string): Promise<Task> {
-    const response = await fetch(`${this.baseUrl}/api/${userId}/tasks/${taskId}`, {
+    const response = await fetch(`/api/${userId}/tasks/${taskId}`, {
       method: 'PUT',
       headers: this.getAuthHeaders(token),
       body: JSON.stringify(taskData),
@@ -611,7 +611,7 @@ class ApiClient {
 
   // Delete a task
   async deleteTask(userId: string, taskId: string, token: string): Promise<void> {
-    const response = await fetch(`${this.baseUrl}/api/${userId}/tasks/${taskId}`, {
+    const response = await fetch(`/api/${userId}/tasks/${taskId}`, {
       method: 'DELETE',
       headers: this.getAuthHeaders(token),
     });
@@ -716,7 +716,7 @@ class ApiClient {
 
   // Mark task as complete/incomplete
   async updateTaskCompletion(userId: string, taskId: string, completed: boolean, token: string): Promise<Task> {
-    const response = await fetch(`${this.baseUrl}/api/${userId}/tasks/${taskId}/complete?completed=${completed}`, {
+    const response = await fetch(`/api/${userId}/tasks/${taskId}/complete?completed=${completed}`, {
       method: 'PATCH',
       headers: this.getAuthHeaders(token),
     });
